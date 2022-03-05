@@ -9,6 +9,7 @@ namespace FakeThermostat
         {
             App.Initialize();
 
+            App.Current.Connect();
             App.Current.Run();
 
             Thread.Sleep(Timeout.Infinite);

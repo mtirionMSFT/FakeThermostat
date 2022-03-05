@@ -16,7 +16,7 @@ namespace FakeThermostat.Services
         {
             // Create an X.509 certificate object and create device client for Azure IoT Hub
             X509Certificate2 cert = new X509Certificate2(
-                App.AZURE_ROOT_CA, App.PRIVATE_KEY, App.CERTIFICATE_PASSWORD);
+                App.PUBLIC_CERTIFICATE, App.PRIVATE_KEY, App.CERTIFICATE_PASSWORD);
             _client = new DeviceClient(
                 App.IOT_BROKER_ADDRESS, App.DEVICE_ID, cert, azureCert: new X509Certificate(App.AZURE_ROOT_CA));
 
@@ -24,7 +24,7 @@ namespace FakeThermostat.Services
             //MqttClient client = new MqttClient("TIRPI4", 1883, true, new X509Certificate(App.AZURE_ROOT_CA), null, MqttSslProtocols.TLSv1_2);
             //client.Connect("FakeThermostat");
 
-            _client = new DeviceClient(App.IOT_BROKER_ADDRESS, App.DEVICE_ID, App.EDGE_CONNECTION_STRING);
+            //_client = new DeviceClient(App.IOT_BROKER_ADDRESS, App.DEVICE_ID, cert, azureCert: new X509Certificate(App.AZURE_ROOT_CA));
 
             bool isOpen = _client.Open();
             Debug.WriteLine($"Connection to {App.IOT_BROKER_ADDRESS} isOpen={isOpen}");

@@ -21,7 +21,7 @@ namespace FakeThermostat.Pages
                 HorizontalTextAlignment.Center, VerticalTextAlignment.Top, 
                 0, (ushort)(App.Current.Screen.Height / 2), 0, 0);
 
-            App.Current.Connect();
+            // App.Current.Connect();
 
             App.Current.Screen.Clear();
             App.Current.Screen.Normal.DisplayText(
